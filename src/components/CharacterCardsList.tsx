@@ -21,6 +21,7 @@ function CharacterCardsList() {
                 {characters.map((character) => {
                     return (<CharacterCard
                         key={character.id}
+                        id={character.id}
                         name={character.name}
                         status={character.status}
                         species={character.species}

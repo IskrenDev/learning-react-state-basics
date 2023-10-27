@@ -1,3 +1,4 @@
+import "./SearchInput.css"
 import {ChangeEvent} from "react";
 
 type InputProps = {
@@ -5,7 +6,7 @@ type InputProps = {
 }
 
 function SearchInput(props:InputProps) {
-    return <input onChange={props.handleFunction}/>
+    return <input className={"search-input"} onChange={props.handleFunction}/>
 }
 
 export default SearchInput;
