@@ -1,5 +1,11 @@
-.characters-list {
+.test{
+    text-align: center;
+    grid-column: span 3;
+}
+
+.characters-list-grid {
     width: 100%;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
     grid-gap: 20px;

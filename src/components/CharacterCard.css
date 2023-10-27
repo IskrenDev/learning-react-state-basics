@@ -7,12 +7,16 @@
     color: black;
     font-size: 1.5rem;
     position: relative;
+    transition: transform .5s;
+}
+
+.character-card:hover {
+    transform: scale(1.05);
 }
 
 .character-card img{
     border-top-right-radius: 50%;
-    border-left: 3px solid;
-    border-bottom: 3px solid;
+    border: 3px solid;
 }
 
 .character-id {

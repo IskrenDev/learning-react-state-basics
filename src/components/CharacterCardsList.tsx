@@ -4,6 +4,7 @@ import CharacterCard from "./CharacterCard.tsx";
 import allCharacters from "../data/allCharacters.ts";
 import RickAndMortyCharacter from "../interfaces/RickAndMortyCharacter.ts";
 import SearchInput from "./SearchInput.tsx";
+import ErrorMessage from "./ErrorMessage.tsx";
 
 function CharacterCardsList() {
     const [characters , setCharacters] = useState<RickAndMortyCharacter[]>(allCharacters);
@@ -15,10 +16,11 @@ function CharacterCardsList() {
     }
 
     return (
-        <>
+        <section className={"characters-list"}>
+            <h1>Rick and morty</h1>
             <SearchInput handleFunction={handleOnChange}/>
-            <div className={"characters-list"}>
-                {characters.map((character) => {
+            <div className={"characters-list-grid"}>
+                {characters.length === 0 ? <ErrorMessage /> :characters.map((character) => {
                     return (<CharacterCard
                         key={character.id}
                         id={character.id}
@@ -30,7 +32,7 @@ function CharacterCardsList() {
                     />)
                 })}
             </div>
-        </>
+        </section>
     )
 }
 
