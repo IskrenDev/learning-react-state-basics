@@ -1,19 +1,22 @@
-import {useState} from "react";
+import "./CharacterCardsList.css";
+import {ChangeEvent, useState} from "react";
 import CharacterCard from "./CharacterCard.tsx";
-import allCharacters from "../allCharacters.ts";
+import allCharacters from "../data/allCharacters.ts";
 import RickAndMortyCharacter from "../interfaces/RickAndMortyCharacter.ts";
+import SearchInput from "./SearchInput.tsx";
 
 function CharacterCardsList() {
-
     const [characters , setCharacters] = useState<RickAndMortyCharacter[]>(allCharacters);
+
+    function handleOnChange(event:ChangeEvent<HTMLInputElement>){
+        const searchedCharacters:RickAndMortyCharacter[] = allCharacters
+            .filter(character => character.name.includes(event.target.value))
+        setCharacters(searchedCharacters);
+    }
 
     return (
         <>
-            <input onChange={(event) => {
-                const searchedCharacters = allCharacters
-                    .filter(character => character.name.includes(event.target.value))
-                setCharacters(searchedCharacters);
-            }}/>
+            <SearchInput handleFunction={handleOnChange}/>
             <div className={"characters-list"}>
                 {characters.map((character) => {
                     return (<CharacterCard
@@ -26,9 +29,6 @@ function CharacterCardsList() {
                     />)
                 })}
             </div>
-
-
-
         </>
     )
 }

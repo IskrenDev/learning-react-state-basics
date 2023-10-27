@@ -1,3 +1,4 @@
+import "./CharacterCard.css";
 import Character from "../interfaces/Character.ts";
 
 function CharacterCard({name,status,species,gender,imageUrl} : Character) {
