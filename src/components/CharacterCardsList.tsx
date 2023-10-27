@@ -11,7 +11,12 @@ function CharacterCardsList() {
 
     function handleOnChange(event:ChangeEvent<HTMLInputElement>){
         const searchedCharacters:RickAndMortyCharacter[] = allCharacters
-            .filter(character => character.name.includes(event.target.value))
+            .filter(character =>
+                character.name.includes(event.target.value) ||
+                character.gender.includes(event.target.value) ||
+                character.species.includes(event.target.value) ||
+                character.status.includes(event.target.value)
+            )
         setCharacters(searchedCharacters);
     }
 
