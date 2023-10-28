@@ -11,9 +11,13 @@ function SearchInput(props:InputProps) {
 
     return(
         <div className={"search"}>
-            <input className={"search-input"} onChange={props.onChangeFunction}/>
+            <input
+                className={"search-input"}
+                onChange={props.onChangeFunction}
+                placeholder={"e.g. Rick, Human, Alive..."}
+            />
             <p className={"character-count"}>{props.total}</p>
-            <button className={"btn-five-characters"} onClick={props.onClickFunction}>next 5</button>
+            <button className={"btn-five-characters"} onClick={props.onClickFunction}>🖐🏿 Characters</button>
         </div>
     )
 
