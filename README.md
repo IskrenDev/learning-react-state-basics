@@ -16,9 +16,6 @@ Rick&Morty-Gallery is a React project created using Vite and TypeScript. The goa
 ## Overview
 
 ### The challenge
-
-Users should be able to:
-
 - Users should be able to enter a character trait (such as name, alive status, etc.) into an input field to filter the list of characters
 - If the input field is empty, the entire list should be displayed
 - If there are no matches for the input, an error message should be displayed
