@@ -8,10 +8,11 @@ import ErrorMessage from "./ErrorMessage.tsx";
 
 function CharacterCardsList() {
     const [characters , setCharacters] = useState<RickAndMortyCharacter[]>(allCharacters);
+    const [count , setCount] = useState<number>(0);
 
-    function handleOnChange(event:ChangeEvent<HTMLInputElement>){
+    function onChangeHandler(event:ChangeEvent<HTMLInputElement>):void{
         const searchedCharacters:RickAndMortyCharacter[] = allCharacters
-            .filter(character =>
+            .filter((character:RickAndMortyCharacter) =>
                 character.name.includes(event.target.value) ||
                 character.gender.includes(event.target.value) ||
                 character.species.includes(event.target.value) ||
@@ -20,12 +21,22 @@ function CharacterCardsList() {
         setCharacters(searchedCharacters);
     }
 
+    function onClickHandler() {
+        const initialCount:number = count;
+        const searchedCharacters:RickAndMortyCharacter[] = [];
+        for (let i = initialCount; i < initialCount+5; i++) {
+            searchedCharacters.push(allCharacters[i])
+        }
+        count<allCharacters.length-5 ? setCount(initialCount+5) : setCount(0);
+        setCharacters(searchedCharacters);
+    }
+
     return (
         <section className={"characters-list"}>
             <h1>Rick and morty</h1>
-            <SearchInput handleFunction={handleOnChange}/>
+            <SearchInput onChangeFunction={onChangeHandler} onClickFunction={onClickHandler} total={characters.length}/>
             <div className={"characters-list-grid"}>
-                {characters.length === 0 ? <ErrorMessage /> :characters.map((character) => {
+                {characters.length === 0 ? <ErrorMessage /> :characters.map((character:RickAndMortyCharacter) => {
                     return (<CharacterCard
                         key={character.id}
                         id={character.id}

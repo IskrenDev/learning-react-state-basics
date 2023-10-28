@@ -1,3 +1,8 @@
+.search {
+    position: relative;
+    display: inline-block;
+}
+
 .search-input {
     width: 400px;
     height: 50px;
@@ -8,4 +13,32 @@
     text-align: center;
     font-size: 1.4rem;
     margin-bottom: 20px;
+}
+
+.character-count {
+    color: black;
+    position: absolute;
+    top: -5px;
+    right: 20px;
+}
+
+.btn-five-characters {
+    width: 100px;
+    position: absolute;
+    margin: 7px 10px;
+    background: #efa54f;
+    color: #000;
+    border: none;
+}
+
+.btn-five-characters:hover{
+    background: #eac597;
+    border: none;
+}
+.btn-five-characters:focus{
+    outline: none;
+}
+
+.btn-five-characters:active {
+    transform: scale(1.04);
 }
